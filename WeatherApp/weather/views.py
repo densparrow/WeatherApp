@@ -53,6 +53,8 @@ def new(request):
             'city': city.name,
             'temp': res['main']['temp'],
             'icon': res['weather'][0]['icon'],
+            'humidity': res['main']['humidity'],
+            'wind_speed': res['wind']['speed'],
         }
         all_cities.append(city_info)
 

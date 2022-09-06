@@ -22,11 +22,11 @@
 
         <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">Информация</h4>
+                <h4 class="my-0 fw-normal">Узнать прогноз погоды</h4>
             </div>
 
             <div class="card-body">
-                <h1 class="card-title pricing-card-title">Узнать прогноз погоды</h1>
+                <h1 class="card-title pricing-card-title text-center">Информация</h1>
 
                 <div class="container mt-5">
                     <div class="row">
@@ -36,28 +36,82 @@
                                 <label for='city'>Город</label>
                                 {{form.name}}
                                 <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
-                            </form>
+                            </form><br>
                         </div>
-                        <div class="col-4 offset-1">
-                            <h1>Погода сейчас</h1>
-                            {%for info in all_info%}
+
+                    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Температура</h4>
+          </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        {%for info in all_info%}
                             <div class="alert alert-info">
                                 <div class="row">
                                     <div class="col-9">
-                                        <b>Город</b>{{info.city}}<br>
-                                        <b>Температура:</b>{{info.temp}}<sup>0</sup><br>
+                                        <b>Город: </b>{{info.city}}<br>
+                                        <b>Температура: </b>{{info.temp}}<sup>0</sup><br>
                                     </div>
                                     <div class="col-2 offset1">
                                         <img src="http://openweathermap.org/img/w/{{info.icon}}.png" alt="фото погоды" class="img-thunbnail">
                                     </div>
                                 </div>
                             </div>
-                            {%endfor%}
-                        </div>
-                    </div>
+                        {%endfor%}
+                    </ul>
                 </div>
-            </div>
         </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Влажность</h4>
+          </div>
+            <div class="card-body">
+               <ul class="list-unstyled mt-3 mb-4">
+                  {%for info in all_info%}
+                       <div class="alert alert-info">
+                          <div class="row">
+                              <div class="col-9">
+                                <b>Город: </b>{{info.city}}<br>
+                                <b>Влажность: </b>{{info.humidity}} %<br>
+                              </div>
+                              <div class="col-2 offset1">
+                              <img src="http://openweathermap.org/img/w/{{info.icon}}.png" alt="фото погоды" class="img-thunbnail">
+                              </div>
+                          </div>
+                       </div>
+                   {%endfor%}
+               </ul>
+          </div>
+        </div>
+      </div>
+     <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Скорость ветра</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+                {%for info in all_info%}
+                   <div class="alert alert-info">
+                       <div class="row">
+                         <div class="col-9">
+                            <b>Город: </b>{{info.city}}<br>
+                            <b>Скорость ветра: </b>{{info.wind_speed}} м/с<br>
+                         </div>
+                           <div class="col-2 offset1">
+                              <img src="http://openweathermap.org/img/w/{{info.icon}}.png" alt="фото погоды" class="img-thunbnail">
+                           </div>
+                       </div>
+                   </div>
+                {%endfor%}
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 </body>
 </html>
